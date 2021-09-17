@@ -11,6 +11,7 @@ var ZipArchiveOutputStream = require('compress-commons').ZipArchiveOutputStream;
 var ZipArchiveEntry = require('compress-commons').ZipArchiveEntry;
 
 var util = require('archiver-utils');
+var iconv = require('iconv-lite');
 
 /**
  * @constructor
@@ -161,6 +162,9 @@ ZipStream.prototype.entry = function(source, data, callback) {
     source = Buffer.from(data.linkname);
   }
 
+  entry.name = iconv.encode(entry.name, 'CP932');
+  entry.getGeneralPurposeBit().useUTF8ForNames(false);
+  
   return ZipArchiveOutputStream.prototype.entry.call(this, entry, source, callback);
 };
 

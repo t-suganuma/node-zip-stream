@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "archiver-utils": "^2.1.0",
-    "compress-commons" : "git+https://github.com/t-suganuma/node-compress-commons#master",
+    "compress-commons": "^4.1.0",
+    "iconv-lite": "^0.6.3",    
     "readable-stream": "^3.6.0"
   },
   "devDependencies": {
